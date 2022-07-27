@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<main>
+  <h1>My Receipts</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Vendor</th>
+        <th>Total</th>
+        <th>Tax</th>
+        <th>Date</th>
+        <th>Category</th>
+        <th>Account</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for receipt in receipts %}
+      <tr>
+        <th>{{receipt.vendor}}</th>
+        <th>{{receipt.total}}</th>
+        <th>{{receipt.tax}}</th>
+        <th>{{receipt.date}}</th>
+        <th>{{receipt.category}}</th>
+        <th>{{receipt.account}}</th>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</main>
+{% endblock content %}
