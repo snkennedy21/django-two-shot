@@ -20,6 +20,7 @@ from django.urls import reverse_lazy
 
 urlpatterns = [
     path('', RedirectView.as_view(url=reverse_lazy('home'))),
+    path('accounts/', include(''))
     path('admin/', admin.site.urls),
     path('receipts/', include('receipts.urls'))
 ]
