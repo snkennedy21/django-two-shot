@@ -12,11 +12,8 @@ def signup(request):
     username = request.POST.get('username')
     password = request.POST.get('password1')
 
-    print(username)
-    print(password)
     user = User.objects.create_user(username, f'{username}@email.com', password)
 
-    print(user)
     if user is not None:
       login(request, user)
       return redirect('home')
