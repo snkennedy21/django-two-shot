@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 @login_required
 def receipts(request):
   user = request.user
-  receipts = Receipt.objects.get(purchaser=user)
+  receipts = Receipt.objects.filter(purchaser=user)
 
   context = {
     "receipts": receipts
