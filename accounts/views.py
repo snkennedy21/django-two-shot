@@ -6,8 +6,6 @@ from django.shortcuts import redirect
 from django.contrib.auth.models import User
 
 def signup(request):
-  form = UserCreationForm()
-
   if request.method == "POST":
     username = request.POST.get('username')
     password = request.POST.get('password1')
@@ -19,10 +17,11 @@ def signup(request):
       return redirect('home')
     else:
       messages.error(request, "Username Or password does not exist")
-
-  context = {
-    "form": form
-  }
-
-  return render(request, 'registration/signup.html', context)
+  
+  else:
+    form = UserCreationForm()
+    context = {
+      "form": form
+      }
+    return render(request, 'registration/signup.html', context)
 

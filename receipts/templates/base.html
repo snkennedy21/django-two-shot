@@ -10,11 +10,37 @@
 
 <body>
 
+  <style>
+    ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+  </style>
+
   <nav>
     <ul>
       {% if user.is_authenticated %}
       <li>
+        <a href="{% url 'home' %}">Home</a>
+      </li>
+      <li>
         <a href="{% url 'logout' %}">Logout</a>
+      </li>
+      <li>
+        <a href="{% url 'expenses_list' %}">Expense List</a>
+      </li>
+      <li>
+        <a href="{% url 'create_receipt' %}">Create Expense</a>
+      </li>
+      <li>
+        <a href="{% url 'accounts_list' %}">Accounts</a>
+      </li>
+      <li>
+        <a href="{% url 'create_category' %}">Create Category</a>
+      </li>
+      <li>
+        <a href="{% url 'create_account' %}">Create Account</a>
       </li>
       {% elif not user.is_authenticated %}
       <li>
